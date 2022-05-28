@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="vue.js"></script>
+</head>
+<body>
+<div id="vueapp">
+    <div>
+        <video ref="preview" width="200" height="150" autoplay></video>
+    </div>
+    <div>
+        <button :disabled="recording" @click="btnRecordClicked">Record</button>
+        <button :disabled="paused||!recording" @click="btnPauseClicked">Pause</button>
+        <button :disabled="!paused||!recording" @click="btnResumeClicked">Resume</button>
+        <button :disabled="!recording" @click="btnStopClicked">Stop</button>
+        <button :disabled="!currentWebmData" @click="btnPlayClicked">Play</button>
+    </div>
+    <video controls ref="player" width="400" height="300"></video>
+
+    <div>
+        <video ref="previewScreen" width="200" height="150" autoplay></video>
+    </div>
+    <div>
+        <button :disabled="screenRecording" @click="btnScreenRecordClicked">RecordScreen</button>
+        <button :disabled="screenPaused||!screenRecording" @click="btnScreenPauseClicked">Pause</button>
+        <button :disabled="!screenPaused||!screenRecording" @click="btnScreenResumeClicked">Resume</button>
+        <button :disabled="!screenRecording" @click="btnScreenStopClicked">Stop</button>
+        <button :disabled="!screenCurrentWebmData" @click="btnScreenPlayClicked">PlayScreen</button>
+    </div>
+    <video controls ref="ScreenPlayer" width="400" height="300"></video>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
